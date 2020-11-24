@@ -420,8 +420,10 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p><strong>（1）ArrayList</strong>：底层数据结构是数组，查询快，增删慢，线程不安全，效率高，可以存储重复元素<br><strong>（2）LinkedList</strong> 底层数据结构是链表，查询慢，增删快，线程不安全，效率高，可以存储重复元素<br><strong>（3）Vector</strong>:底层数据结构是数组，查询快，增删慢，线程安全，效率低，可以存储重复元素</p>
-<p>**ArrayList和LinkedList ** 的代码演示</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h4 id="（1）ArrayList"><a href="#（1）ArrayList" class="headerlink" title="（1）ArrayList:"></a>（1）ArrayList:</h4><p>底层数据结构是数组，查询快，增删慢，线程不安全，效率高，可以存储重复元素</p>
+<h4 id="（2）LinkedList"><a href="#（2）LinkedList" class="headerlink" title="（2）LinkedList:"></a>（2）LinkedList:</h4><p>底层数据结构是链表，查询慢，增删快，线程不安全，效率高，可以存储重复元素</p>
+<h4 id="（3）Vector"><a href="#（3）Vector" class="headerlink" title="（3）Vector:"></a>（3）Vector:</h4><p>底层数据结构是数组，查询快，增删慢，线程安全，效率低，可以存储重复元素</p>
+<p>ArrayList和LinkedList  的代码演示</p>
 <pre><code class="java">public class TestArrayList &#123;
     public static void main(String[] args) &#123;
         ArrayList list = new ArrayList();//查询快，增删慢。
@@ -472,7 +474,7 @@
         */
     &#125;
 &#125;</code></pre>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p><strong>（1）HashSet</strong>是基于HashMap实现的，默认构造函数是构建一个初始容量为16，负载因子为0.75 的HashMap。封装了一个 HashMap 对象来存储所有的集合元素，所有放入 HashSet 中的集合元素实际上由 HashMap 的 key 来保存，而 HashMap 的 value 则存储了一个 PRESENT，它是一个静态的 Object 对象。HashSet代码如下</p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h4 id="（1）HashSet"><a href="#（1）HashSet" class="headerlink" title="（1）HashSet"></a>（1）HashSet</h4><p>是基于HashMap实现的，默认构造函数是构建一个初始容量为16，负载因子为0.75 的HashMap。封装了一个 HashMap 对象来存储所有的集合元素，所有放入 HashSet 中的集合元素实际上由 HashMap 的 key 来保存，而 HashMap 的 value 则存储了一个 PRESENT，它是一个静态的 Object 对象。HashSet代码如下</p>
 <pre><code class="java">public class HashSet&lt;E&gt;  
     extends AbstractSet&lt;E&gt;  
     implements Set&lt;E&gt;, Cloneable, java.io.Serializable  
@@ -743,7 +745,7 @@ class Student&#123;
     &#125;
 
 &#125;</code></pre>
-<p><strong>（2）LinkedHashSet</strong>底层数据结构采用链表和哈希表共同实现，链表保证了元素的顺序与存储顺序一致，哈希表保证了元素的唯一性。线程不安全，效率高。</p>
+<h4 id="（2）LinkedHashSet"><a href="#（2）LinkedHashSet" class="headerlink" title="（2）LinkedHashSet"></a>（2）LinkedHashSet</h4><p>底层数据结构采用链表和哈希表共同实现，链表保证了元素的顺序与存储顺序一致，哈希表保证了元素的唯一性。线程不安全，效率高。</p>
 <pre><code class="java">public class TestLinkedHashSet &#123;
     public static void main(String[] args) &#123;
         LinkedHashSet&lt;String&gt; set = new LinkedHashSet&lt;String&gt;();
@@ -759,7 +761,7 @@ class Student&#123;
         &#125;
     &#125;
 &#125;</code></pre>
-<p><strong>（3）TreeSet</strong>的底层是由TreeMap来实现的，元素唯一，且都已经排好序；唯一性同样需要重写hashCode和equals()方法，二叉树结构保证了元素的有序性。从下面代码可以看出TreeSet 的 ① 号、② 号构造器的都是新建一个 TreeMap 作为实际存储 Set 元素的容器，而另外 2 个构造器则分别依赖于 ① 号和 ② 号构造器，由此可见，TreeSet 底层实际使用的存储容器就是 TreeMap。</p>
+<h4 id="（3）TreeSet"><a href="#（3）TreeSet" class="headerlink" title="（3）TreeSet"></a>（3）TreeSet</h4><p>的底层是由TreeMap来实现的，元素唯一，且都已经排好序；唯一性同样需要重写hashCode和equals()方法，二叉树结构保证了元素的有序性。从下面代码可以看出TreeSet 的 ① 号、② 号构造器的都是新建一个 TreeMap 作为实际存储 Set 元素的容器，而另外 2 个构造器则分别依赖于 ① 号和 ② 号构造器，由此可见，TreeSet 底层实际使用的存储容器就是 TreeMap。</p>
 <pre><code class="java"> public class TreeSet&lt;E&gt; extends AbstractSet&lt;E&gt; 
     implements NavigableSet&lt;E&gt;, Cloneable, java.io.Serializable 
  &#123; 
@@ -996,7 +998,131 @@ class Book &#123;
 &#125;  </code></pre>
 <p><strong>注意：当Comparable比较方式和Comparator比较方式同时存在时，以Comparator的比较方式为主。</strong></p>
 <p><strong>注意：在重写compareTo或者compare方法时，必须要明确比较的主要条件相等时要比较次要条件。（假设姓名和年龄一直的人为相同的人，如果想要对人按照年龄的大小来排序，如果年龄相同的人，需要如何处理？不能直接return 0，因为可能姓名不同（年龄相同姓名不同的人是不同的人）。此时就需要进行次要条件判断（需要判断姓名），只有姓名和年龄同时相等的才可以返回0.）通过return 0来判断唯一性</strong>。</p>
-
+<h4 id="TreeSet集合为什么要实现Comparable？"><a href="#TreeSet集合为什么要实现Comparable？" class="headerlink" title="TreeSet集合为什么要实现Comparable？"></a>TreeSet集合为什么要实现Comparable？</h4><p>先看看JDK中TreeSet类的add方法</p>
+<pre><code class="java">/**
+     * Adds the specified element to this set if it is not already present.
+     * More formally, adds the specified element &#123;@code e&#125; to this set if
+     * the set contains no element &#123;@code e2&#125; such that
+     * &lt;tt&gt;(e==null ? e2==null : e.equals(e2))&lt;/tt&gt;.
+     * If this set already contains the element, the call leaves the set
+     * unchanged and returns &#123;@code false&#125;.
+     *
+     * @param e element to be added to this set
+     * @return &#123;@code true&#125; if this set did not already contain the specified
+     *         element
+     * @throws ClassCastException if the specified object cannot be compared
+     *         with the elements currently in this set
+     * @throws NullPointerException if the specified element is null
+     *         and this set uses natural ordering, or its comparator
+     *         does not permit null elements
+     */
+    public boolean add(E e) &#123;
+    return m.put(e, PRESENT)==null;
+    &#125;</code></pre>
+<p>注意抛出的异常~~</p>
+<pre><code class="java">/* @throws ClassCastException if the specified object cannot be compared with the elements currently in this set</code></pre>
+<p>也就是说，如果添加的元素不能和已有元素做比较就抛出ClassCastException异常~<br>那两个元素如果判断可比呢？<br>有两种办法，其中一种就是实现 Comparable接口<br>JDK中很多类都实现了Comparable接口，比如Integer<br>至于TreeSet为什么要这样设计，是因为这个类需要实现元素排序的功能<br>那如何实现的排序呢？<br>我们来看 TreeSet的构造方法</p>
+<pre><code class="java">/**
+     * Constructs a new, empty tree set, sorted according to the
+     * natural ordering of its elements.  All elements inserted into
+     * the set must implement the &#123;@link Comparable&#125; interface.
+     * Furthermore, all such elements must be &lt;i&gt;mutually
+     * comparable&lt;/i&gt;: &#123;@code e1.compareTo(e2)&#125; must not throw a
+     * &#123;@code ClassCastException&#125; for any elements &#123;@code e1&#125; and
+     * &#123;@code e2&#125; in the set.  If the user attempts to add an element
+     * to the set that violates this constraint (for example, the user
+     * attempts to add a string element to a set whose elements are
+     * integers), the &#123;@code add&#125; call will throw a
+     * &#123;@code ClassCastException&#125;.
+     */
+    public TreeSet() &#123;
+    this(new TreeMap&lt;E,Object&gt;());
+    &#125;
+ /**
+     * Constructs a set backed by the specified navigable map.
+     */
+    TreeSet(NavigableMap&lt;E,Object&gt; m) &#123;
+        this.m = m;
+    &#125;</code></pre>
+<p>可以发现，排序功能实际上是由TreeMap实现的<br>TreeSet的add方法实际上就是调用的的TreeMap的put方法<del>~<br>最后</del>看看put方法的源码</p>
+<pre><code class="java">/**
+     * Associates the specified value with the specified key in this map.
+     * If the map previously contained a mapping for the key, the old
+     * value is replaced.
+     *
+     * @param key key with which the specified value is to be associated
+     * @param value value to be associated with the specified key
+     *
+     * @return the previous value associated with &lt;tt&gt;key&lt;/tt&gt;, or
+     *         &lt;tt&gt;null&lt;/tt&gt; if there was no mapping for &lt;tt&gt;key&lt;/tt&gt;.
+     *         (A &lt;tt&gt;null&lt;/tt&gt; return can also indicate that the map
+     *         previously associated &lt;tt&gt;null&lt;/tt&gt; with &lt;tt&gt;key&lt;/tt&gt;.)
+     * @throws ClassCastException if the specified key cannot be compared
+     *         with the keys currently in the map
+     * @throws NullPointerException if the specified key is null
+     *         and this map uses natural ordering, or its comparator
+     *         does not permit null keys
+     */
+    public V put(K key, V value) &#123;
+        Entry&lt;K,V&gt; t = root;
+        if (t == null) &#123;
+        // TBD:
+        // 5045147: (coll) Adding null to an empty TreeSet should
+        // throw NullPointerException
+        //
+        // compare(key, key); // type check
+            root = new Entry&lt;K,V&gt;(key, value, null);
+            size = 1;
+            modCount++;
+            return null;
+        &#125;
+        int cmp;
+        Entry&lt;K,V&gt; parent;
+        // split comparator and comparable paths
+        Comparator&lt;? super K&gt; cpr = comparator;
+        if (cpr != null) &#123;
+            do &#123;
+                parent = t;
+                cmp = cpr.compare(key, t.key);
+                if (cmp &lt; 0)
+                    t = t.left;
+                else if (cmp &gt; 0)
+                    t = t.right;
+                else
+                    return t.setValue(value);
+            &#125; while (t != null);
+        &#125;
+        else &#123;
+            if (key == null)
+                throw new NullPointerException();
+            Comparable&lt;? super K&gt; k = (Comparable&lt;? super K&gt;) key;
+            do &#123;
+                parent = t;
+                cmp = k.compareTo(t.key);
+                if (cmp &lt; 0)
+                    t = t.left;
+                else if (cmp &gt; 0)
+                    t = t.right;
+                else
+                    return t.setValue(value);
+            &#125; while (t != null);
+        &#125;
+        Entry&lt;K,V&gt; e = new Entry&lt;K,V&gt;(key, value, parent);
+        if (cmp &lt; 0)
+            parent.left = e;
+        else
+            parent.right = e;
+        fixAfterInsertion(e);
+        size++;
+        modCount++;
+        return null;
+    &#125;</code></pre>
+<p>可以发现，这个二叉树排序中有一条这样的语句来判断大小</p>
+<pre><code class="java">cmp = k.compareTo(t.key);</code></pre>
+<p>这里k，也就是我们TreeSet.add(k) 方法传入的参数</p>
+<pre><code class="java">Comparable&lt;? super K&gt; k = (Comparable&lt;? super K&gt;) key;</code></pre>
+<p>可见，插入TreeSet的对象必须实现Compareble接口</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3>
         </div>
         <!-- .entry-content -->
         
